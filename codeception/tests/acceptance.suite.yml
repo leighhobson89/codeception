@@ -1,0 +1,51 @@
+# Codeception Test Suite Configuration
+
+# suite for acceptance tests.
+# perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - Helper\Acceptance
+        - WebDriver
+    config:
+        WebDriver:
+           browser: 'chrome'
+           url: 'https://www-qa1.unibet.co.uk'             
+           restart: 'true'
+           wait: 0.1
+           connection_timeout: 120
+           request_timeout: 120
+           #pageload_timeout: 120
+           host: 127.0.0.1
+         #  host: 10.150.32.37 #GIB1SLFKVPR01
+extensions:
+    enabled:
+        - Codeception\Extension\Recorder
+
+env:
+#_____PROD WEB_____
+   prod-chrome:
+      modules:
+         config:
+            WebDriver:
+               browser: 'chrome'
+               url: 'https://www.unibet.co.uk'
+               capabilities:
+                    chromeOptions:
+                        args:
+                            - disable-infobars
+
+ #_____QA WEB_____
+   qa-chrome:
+      modules:
+         config:
+            WebDriver:
+               browser: 'chrome'
+               url: 'https://www-qa1.unibet.co.uk'
+               capabilities:
+                    chromeOptions:
+                        args:
+                            - disable-infobars                           
+                            

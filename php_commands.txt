@@ -1,0 +1,7 @@
+php codecept.phar build // - when changes are made to the code
+php codecept.phar run tests/acceptance/functional/04_loginPlaceSingleBetOnNextRaceCept.php --env qa-chrome --html --debug //to run the test
+$I->amGoingTo($horsename); // use for making comments for debugging in the test and for writing titles in the report.
+
+
+$$('css selector');
+
